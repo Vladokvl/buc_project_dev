@@ -1,7 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="381 269 80 80">
   <style>
-    .st0 { fill: #58595B; }
+    .st0 { fill: #2b2829; }
     .st1 { fill: #FC46BA; }
+    @media (prefers-color-scheme: dark) {
+      .st0 { fill: #FFFFFF; }
+    }
   </style>
   <g>
     <path class="st0" d="M442.6,305.3c6.9-2.3,11.6-7.6,11.6-15.9c0-11.5-9-17.8-23.9-17.8h-29v23.9h5.1V276h23.7c12,0,19,4.7,19,13.8

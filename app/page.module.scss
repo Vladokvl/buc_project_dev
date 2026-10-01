@@ -18,15 +18,16 @@
 .bgDesktop {
   display: none !important;
   object-fit: cover;
-  // Pin to left so the baked-in text "ЗАБИРАЙ..." on the left never gets cropped on 4:3 or 16:10 screens!
-  object-position: left center;
+  // Фокусна точка масштабування прив'язана до тексту зліва (X: left, Y: ~22%).
+  // При розширенні/звуженні екрана зум іде прямо в текст, тому він візуально не зміщується!
+  object-position: left 22%;
 }
 
 .bgMobile {
   display: block !important;
   object-fit: cover;
-  // Pin to left so the text on the left never gets cut off on ultra-tall/narrow phone screens (9:20, 9:21)!
-  object-position: left center;
+  // Фокусна точка для мобільного постера прив'язана до блоку тексту (X: left, Y: ~25%)
+  object-position: left 25%;
 }
 
 // Desktop poster is active ONLY in landscape orientation with sufficient width & aspect ratio
@@ -70,7 +71,7 @@
 }
 
 // QR Codes container - modern floating glassmorphism dock
-// Default (mobile / portrait): Bottom-Right corner, vertically stacked, 1.5x larger
+// Default (mobile / portrait): Bottom-Right corner, vertically stacked, max size 250px
 .qrPanel {
   position: absolute;
   z-index: 20;
@@ -80,12 +81,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0.65rem;
+  gap: 0.5rem;
+  padding: 0.6rem 0.55rem;
+  max-height: 250px;
+  max-width: 250px;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-radius: 18px;
+  border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.65);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -103,6 +106,8 @@
     flex-direction: row;
     gap: 1.5rem;
     padding: 1.25rem 1.5rem;
+    max-height: none;
+    max-width: none;
     border-radius: 22px;
   }
 }
@@ -111,7 +116,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   text-decoration: none;
   color: #2b2829;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -123,10 +128,10 @@
 }
 
 // QR image wrapper sizes
-// Mobile: ~1.5x larger (~110px)
+// Mobile: proportional to fit within the 250px container
 .qrImageWrapper {
-  width: 110px;
-  height: 110px;
+  width: 86px;
+  height: 86px;
   position: relative;
   display: flex;
   align-items: center;

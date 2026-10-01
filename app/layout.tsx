@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: "БУК — Бюро Ужгородського Креативу",
   description: "Концептуальні подарунки про Закарпаття",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: "/favicon.svg?v=2",
+    shortcut: "/favicon.svg?v=2",
+    apple: "/favicon.svg?v=2",
   },
 };
 
