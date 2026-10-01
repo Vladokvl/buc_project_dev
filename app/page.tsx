@@ -30,6 +30,9 @@ function FacebookIcon() {
 export default function Home() {
   return (
     <main className={styles.page}>
+      {/* Brand Gradient Top Bar */}
+      <div className={styles.topBar} aria-hidden="true" />
+
       {/* Background Images */}
       <div className={styles.bgContainer} aria-hidden="true">
         {/* Desktop background (without baked-in logo) */}

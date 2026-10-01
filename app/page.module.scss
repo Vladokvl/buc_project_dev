@@ -1,10 +1,40 @@
+@use "./variables" as *;
+
 .page {
   position: relative;
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
-  background-color: #0b1215;
+  background: linear-gradient(
+    to bottom,
+    #0f171b 0%,
+    #0f171b 25%,
+    #dedad5 75%,
+    #d8d4ce 100%
+  );
+}
+
+// Gradient bar: smooth transition through 4 brand colors, full width
+.topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 24px;
+  z-index: 30;
+  background: linear-gradient(
+    to right,
+    $color-pink 0%,
+    $color-cyan 33.33%,
+    $color-purple 66.66%,
+    $color-orange 100%
+  );
+
+  @media (max-width: 768px) {
+    height: 16px;
+  }
 }
 
 // Background images: responsive handling
@@ -18,8 +48,6 @@
 .bgDesktop {
   display: none !important;
   object-fit: cover;
-  // Фокусна точка масштабування прив'язана до тексту зліва (X: left, Y: ~22%).
-  // При розширенні/звуженні екрана зум іде прямо в текст, тому він візуально не зміщується!
   object-position: left 22%;
 }
 
@@ -30,13 +58,25 @@
   object-position: left 25%;
 }
 
-// Desktop poster is active ONLY in landscape orientation with sufficient width & aspect ratio
+// Desktop poster is active in landscape orientation with sufficient width
 @media (min-width: 769px) and (orientation: landscape) and (min-aspect-ratio: 1.15) {
-  .bgDesktop {
-    display: block !important;
-  }
   .bgMobile {
     display: none !important;
+  }
+
+  .bgDesktop {
+    display: block !important;
+    // Для екранів 16:10 (1440x900, 1920x1200) безшовно заповнюємо екран без обрізання тексту і без шва знизу
+    object-fit: fill;
+    object-position: center center;
+  }
+}
+
+// Для стандартних моніторів 16:9 та ширших (1920x1080, 21:9 ultrawide) використовуємо cover з фокусом на тексті
+@media (min-width: 769px) and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+  .bgDesktop {
+    object-fit: cover;
+    object-position: left 22%;
   }
 }
 
