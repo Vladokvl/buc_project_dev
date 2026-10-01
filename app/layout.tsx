@@ -8,8 +8,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "buc_project_dev",
-  description: "Тимчасова головна сторінка",
+  title: "БУК — Бюро Ужгородського Креативу",
+  description: "Концептуальні подарунки про Закарпаття",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
