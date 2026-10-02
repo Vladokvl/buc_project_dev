@@ -27,11 +27,36 @@ function FacebookIcon() {
   );
 }
 
+const TICKER_TEXT = "Онлайн-крамниця стартує до кінця цієї осені";
+
 export default function Home() {
   return (
     <main className={styles.page}>
-      {/* Brand Gradient Top Bar */}
-      <div className={styles.topBar} aria-hidden="true" />
+      {/* Brand Gradient Top Bar with Running Marquee */}
+      <aside className={styles.topBar} aria-label="Оголошення">
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeTrack}>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+          </div>
+          <div className={styles.marqueeTrack} aria-hidden="true">
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+            <span>{TICKER_TEXT}</span>
+            <span className={styles.marqueeSeparator}>✦</span>
+          </div>
+        </div>
+      </aside>
 
       {/* Background Images */}
       <div className={styles.bgContainer} aria-hidden="true">
