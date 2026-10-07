@@ -63,7 +63,7 @@ export default function Home() {
         {/* Desktop background (without baked-in logo) */}
         <Image
           className={styles.bgDesktop}
-          src="/assets/backgrounds/BUC_advertising-1_1920x1080px_2.jpg"
+          src="/assets/backgrounds/BUC_advertising-1_1920x1080px_BIG.jpg"
           alt="BUC Desktop Advertising"
           fill
           priority
@@ -73,7 +73,7 @@ export default function Home() {
         {/* Mobile background (without baked-in logo) */}
         <Image
           className={styles.bgMobile}
-          src="/assets/backgrounds/BUC_advertising-1_1080x1920px_2.jpg"
+          src="/assets/backgrounds/BUC_advertising-1_1080x1920px_BIG.jpg"
           alt="BUC Mobile Advertising"
           fill
           priority
