@@ -1,0 +1,59 @@
+{
+  "header": {
+    "menu": "Menu",
+    "close": "Close",
+    "projects": "Projects",
+    "shop": "Shop",
+    "about": "Concept",
+    "contacts": "Contacts",
+    "cart": "Cart",
+    "emptyCart": "Your cart is currently empty",
+    "checkout": "Proceed to Checkout",
+    "total": "Total",
+    "language": "Language",
+    "currency": "Currency"
+  },
+  "hero": {
+    "badge": "Bureau of Uzhhorod Creativity",
+    "ctaPrimary": "Explore Projects",
+    "ctaSecondary": "Merch Shop",
+    "scrollHint": "Scroll down",
+    "portalLabel": "From the suitcase of the past → to the new drop"
+  },
+  "projects": {
+    "heading": "Bureau Projects",
+    "subheading": "Cultural initiatives, music, and limited collections rooted in Transcarpathian heritage.",
+    "viewModeGrid": "Grid",
+    "viewModeStack": "Stack",
+    "viewProject": "explore >",
+    "fromPrice": "from",
+    "featuredBadge": "Flagship Drop",
+    "featuredTitle": "Musical T-Shirt “LOVE · Linger On”",
+    "featuredDesc": "Oversized heavyweight tee featuring an archival Transcarpathian portrait, bilingual folk lyrics, and a scannable QR code that unlocks the authentic song.",
+    "listenQuote": "“Two more years I'll linger on, then with my true love I'll be gone”",
+    "listenAudio": "Play Melody",
+    "pauseAudio": "Pause",
+    "selectSize": "Select size",
+    "addToCart": "Add to Cart",
+    "addedToCart": "Added to Cart ✓",
+    "details": "Material: 100% heavyweight combed cotton · Contrast lavender flatlock stitch · Relaxed fit"
+  },
+  "about": {
+    "heading": "Take a Piece of the Past into Your Future",
+    "p1": "BUC (Bureau of Uzhhorod Creativity) is a space for conceptual gifts and cultural projects rooted in Transcarpathia. We uncover archival portraits, dialect songs, and urban legends of Uzhhorod to transform them into contemporary wearable artifacts.",
+    "p2": "Every piece in our store carries its own story, sound, and provenance. More than a souvenir, it is a living dialogue between regional heritage and modern visual culture.",
+    "stat1Label": "Authentic Archives",
+    "stat1Text": "Real historical photography & Transcarpathian folklore",
+    "stat2Label": "Musical Code",
+    "stat2Text": "Integrated QR link to the project's song & story",
+    "stat3Label": "Limited Editions",
+    "stat3Text": "Small-batch craft with tactile stitching details"
+  },
+  "footer": {
+    "tagline": "Space of Conceptual Gifts about Transcarpathia",
+    "navigation": "Navigation",
+    "socials": "Socials",
+    "city": "Uzhhorod, Transcarpathia, Ukraine",
+    "rights": "All rights reserved."
+  }
+}

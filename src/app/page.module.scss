@@ -1,0 +1,118 @@
+@use "./variables" as *;
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    #0f171b 0%,
+    #0f171b 25%,
+    #dedad5 75%,
+    #d8d4ce 100%
+  );
+}
+
+// Background images: responsive handling
+.bgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+// Default to mobile poster (for phones, tablets in portrait, and tall/narrow windows)
+.bgDesktop {
+  display: none !important;
+  object-fit: cover;
+  object-position: left 22%;
+}
+
+.bgMobile {
+  display: block !important;
+  object-fit: cover;
+  object-position: left 25%;
+}
+
+// Desktop poster is active in landscape orientation with sufficient width
+@media (min-width: 769px) and (orientation: landscape) and (min-aspect-ratio: 1.15) {
+  .bgMobile {
+    display: none !important;
+  }
+
+  .bgDesktop {
+    display: block !important;
+    object-fit: fill;
+    object-position: center center;
+  }
+}
+
+// Standard 16:9 and wider monitors
+@media (min-width: 769px) and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+  .bgDesktop {
+    object-fit: cover;
+    object-position: left 22%;
+  }
+}
+
+// Bottom Hero CTA bar
+.heroActions {
+  position: absolute;
+  z-index: 20;
+  left: clamp(20px, 4vw, 64px);
+  bottom: clamp(24px, 4.5vh, 52px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.primaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.5rem;
+  background: #171717;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+
+  &:hover {
+    background: $color-pink;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.4rem;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #171717;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(23, 23, 23, 0.15);
+  transition: background-color 0.25s ease, transform 0.2s ease;
+
+  &:hover {
+    background: #ffffff;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
