@@ -13,7 +13,7 @@ export default function HeroSection() {
       <div className={styles.bgContainer}>
         <Image
           src="/assets/backgrounds/BUC_advertising-1_1920x1080px_BIG.jpg"
-          alt="BUC — Бюро Ужгородського Креативу"
+          alt="BUC - Бюро Ужгородського Креативу"
           fill
           priority
           quality={100}
@@ -23,7 +23,7 @@ export default function HeroSection() {
         />
         <Image
           src="/assets/backgrounds/BUC_advertising-1_1080x1920px_BIG.jpg"
-          alt="BUC — Бюро Ужгородського Креативу"
+          alt="BUC - Бюро Ужгородського Креативу"
           fill
           priority
           quality={100}
@@ -36,7 +36,6 @@ export default function HeroSection() {
       <div className={styles.heroActions}>
         <a href="#projects" className={styles.primaryCta}>
           <span>{t("hero.ctaPrimary")}</span>
-          <span aria-hidden="true">↓</span>
         </a>
         <a href="#flagship" className={styles.secondaryCta}>
           <span>{t("hero.ctaSecondary")}</span>

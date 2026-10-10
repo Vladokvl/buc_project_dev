@@ -8,6 +8,7 @@ import {
   APPAREL_SIZES,
   FLAGSHIP_PRICE,
 } from "@/data/projects";
+import AudioWavePlayer from "@/components/ui/AudioWavePlayer";
 
 export default function FlagshipDrop() {
   const { t, formatPrice, addToCart, setIsCartOpen } = useLocaleCurrency();
@@ -72,14 +73,14 @@ export default function FlagshipDrop() {
             </div>
           </div>
 
-          {/* Right: Story, Price, Size Selector & Add to Cart */}
+          {/* Right: Story, Audio Wave Player, Price, Size Selector & Add to Cart */}
           <div className="lg:col-span-5 flex flex-col justify-between lg:sticky lg:top-28">
             <div>
-              <span className="inline-block bg-[#171717] px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-white uppercase">
+              <p className="text-xs text-[#58595B]">
                 {t("projects.featuredBadge")}
-              </span>
+              </p>
 
-              <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#171717]">
+              <h2 className="mt-2 text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#171717]">
                 {t("projects.featuredTitle")}
               </h2>
 
@@ -87,9 +88,11 @@ export default function FlagshipDrop() {
                 {formatPrice(FLAGSHIP_PRICE)}
               </p>
 
-              <blockquote className="mt-6 border-l-2 border-[#FC46BA] pl-4 text-sm italic text-[#171717]">
-                {t("projects.listenQuote")}
-              </blockquote>
+              <AudioWavePlayer
+                quote={t("projects.listenQuote")}
+                labelPlay={t("projects.listenAudio")}
+                labelPause={t("projects.pauseAudio")}
+              />
 
               <p className="mt-5 text-sm sm:text-base leading-relaxed text-[#58595B]">
                 {t("projects.featuredDesc")}

@@ -80,12 +80,14 @@ export default function Header() {
 
             <span
               aria-hidden="true"
-              className={`h-3.5 w-px ${
+              className={`hidden md:block h-3.5 w-px ${
                 isLightHeader ? "bg-black/15" : "bg-white/30"
               }`}
             />
 
-            <LocaleCurrencySelect />
+            <div className="hidden md:block">
+              <LocaleCurrencySelect />
+            </div>
           </div>
 
           {/* CENTER: BUC Logo */}

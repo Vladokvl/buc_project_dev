@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   Locale,
   Currency,
@@ -59,21 +60,25 @@ const LocaleCurrencyContext = createContext<LocaleCurrencyContextValue | null>(
 
 export function LocaleCurrencyProvider({
   children,
+  initialLocale = DEFAULT_LOCALE,
 }: {
   children: React.ReactNode;
+  initialLocale?: Locale;
 }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
+  const router = useRouter();
+  const pathname = usePathname();
+  const [locale, setLocaleState] = useState<Locale>(initialLocale);
   const [currency, setCurrencyState] = useState<Currency>(DEFAULT_CURRENCY);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   useEffect(() => {
+    setLocaleState(initialLocale);
+    document.documentElement.lang = initialLocale;
+  }, [initialLocale]);
+
+  useEffect(() => {
     try {
-      const savedLocale = localStorage.getItem("BUC_LOCALE");
-      if (isValidLocale(savedLocale)) {
-        setLocaleState(savedLocale);
-        document.documentElement.lang = savedLocale;
-      }
       const savedCurrency = localStorage.getItem("BUC_CURRENCY");
       if (isValidCurrency(savedCurrency)) {
         setCurrencyState(savedCurrency);
@@ -87,16 +92,27 @@ export function LocaleCurrencyProvider({
     }
   }, []);
 
-  const setLocale = useCallback((nextLocale: Locale) => {
-    setLocaleState(nextLocale);
-    try {
-      localStorage.setItem("BUC_LOCALE", nextLocale);
-      document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      document.documentElement.lang = nextLocale;
-    } catch {
-      // Ignore storage errors
-    }
-  }, []);
+  const setLocale = useCallback(
+    (nextLocale: Locale) => {
+      setLocaleState(nextLocale);
+      try {
+        localStorage.setItem("BUC_LOCALE", nextLocale);
+        document.cookie = `NEXT_LOCALE=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`;
+        document.documentElement.lang = nextLocale;
+      } catch {
+        // Ignore storage errors
+      }
+
+      const segments = (pathname || "/").split("/").filter(Boolean);
+      if (segments.length > 0 && isValidLocale(segments[0])) {
+        segments[0] = nextLocale;
+      } else {
+        segments.unshift(nextLocale);
+      }
+      router.push(`/${segments.join("/")}`, { scroll: false });
+    },
+    [pathname, router]
+  );
 
   const setCurrency = useCallback((nextCurrency: Currency) => {
     setCurrencyState(nextCurrency);
